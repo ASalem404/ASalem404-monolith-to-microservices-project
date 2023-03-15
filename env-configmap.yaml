@@ -1,0 +1,16 @@
+apiVersion: v1
+data:
+  AWS_BUCKET: arn:aws:s3:::salem-205340167951-dev
+  AWS_PROFILE: default
+  AWS_REGION: us-east-1
+  JWT_SECRET: testing
+  POSTGRES_DB: postgres
+  POSTGRES_HOST: postgres.cgveodyrjdce.us-east-1.rds.amazonaws.com
+  URL: http://localhost:8100
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2023-03-13T20:47:35Z"
+  name: env-configmap
+  namespace: default
+  resourceVersion: "10355"
+  uid: 07e3b421-8cfb-4574-978b-2d4ac9b77d41

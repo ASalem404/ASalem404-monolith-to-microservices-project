@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: backend-feed
+  name: backend-feed
+spec:
+  selector:
+    matchLabels:
+      service: backend-feed
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        service: backend-feed
+    spec:
+      containers:
+        - image: mostafamgomaa/udagram-api-feed:v3
+          name: backend-feed
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: env-secret
+            - configMapRef:
+                name: env-configmap

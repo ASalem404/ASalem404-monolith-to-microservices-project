@@ -1,0 +1,40 @@
+pipeline{
+	agent {label 'linux'}
+	environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+	}
+	stages { 
+	    stage('gitclone') {
+			steps {
+				git 'https://github.com/ASalem404/cd0354-monolith-to-microservices-project.git'
+			}
+		}
+		stage('Build') {
+			steps {
+				sh 'docker build -t ahmedas144/reverseproxy:v1 ./udagram-reverseproxy'
+				sh 'docker build -t ahmedas144/udagram-api-user:v1 ./udagram-api-user'
+				sh 'docker build -t ahmedas144/udagram-api-feed:v1 ./udagram-api-feed'
+				sh 'docker build -t ahmedas144/udagram-frontend:v1 ./udagram-frontend'
+			}
+		}
+		stage('Login') {
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+		stage('Push') {
+			steps {
+
+				sh 'docker push ahmedas144/reverseproxy:v1'
+				sh 'docker push ahmedas144/udagram-api-user:v1'
+				sh 'docker push ahmedas144/udagram-api-feed:v1'
+				sh 'docker push ahmedas144/udagram-frontend:v1'
+			}
+		}
+	}
+	post {
+		always {
+			sh 'docker logout'
+		}
+	}
+}
