@@ -9,8 +9,8 @@ data:
   URL: http://localhost:8100
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2023-03-13T20:47:35Z"
+  creationTimestamp: "2023-03-16T15:09:16Z"
   name: env-configmap
   namespace: default
   resourceVersion: "10355"
-  uid: 07e3b421-8cfb-4574-978b-2d4ac9b77d41
+  uid: 00a5ffbe-6f29-11ed-b014-83a311122bef
