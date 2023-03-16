@@ -15,7 +15,7 @@ spec:
         service: backend-user
     spec:
       containers:
-        - image: mostafamgomaa/udagram-api-user:v3
+        - image: ahmedas144/udagram-api-user:v1
           name: backend-user
           envFrom:
             - configMapRef:
