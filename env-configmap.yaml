@@ -1,7 +1,7 @@
 URL=http://localhost:8100
-AWS_BUCKET= arn:aws:s3:::salem-205340167951-dev
-AWS_PROFILE= default
-AWS_REGION= us-east-1
-JWT_SECRET= testing
-POSTGRES_DB= postgres
-POSTGRES_HOST= postgres.cgveodyrjdce.us-east-1.rds.amazonaws.com
+AWS_BUCKET=arn:aws:s3:::salem-205340167951-dev
+AWS_PROFILE=default
+AWS_REGION=us-east-1
+JWT_SECRET=testing
+POSTGRES_DB=postgres
+POSTGRES_HOST=postgres.cgveodyrjdce.us-east-1.rds.amazonaws.com
